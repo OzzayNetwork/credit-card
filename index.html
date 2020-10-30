@@ -23,7 +23,7 @@
 <link href="assets/vendors/animate/animate.min.css" rel="stylesheet">
 <link href="assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="assets/vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
-
+<link href="assets/vendors/bootstrap-select-1.13.14/css/bootstrap-select.min.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="assets/img/logos/favicon.png" type="image/x-icon">
 <link rel="icon" href="assets/img/logos/favicon.png" type="image/x-icon">
@@ -90,10 +90,9 @@
                     <label class="mb-0 pb-0 d-none">Company's logo</label>
                     <p class="d-none"><small>Select the <strong>full color logo</strong> and two other alternatives. Eg their black or white logo versions.</small></p>
                     <div class="upload-img-cont">
-                      <img src="#" title="no Image " class="photo-icon" id="selected-image">
-                      <h6>No Image selected</h6>
+                      <img src="assets/img/card.svg" title="no Image " class="photo-icon" id="selected-image">
                     </div>
-                    <div class="row control-buttons">
+                    <div class="row control-buttons d-none">
                       <div class="col-4">
                         <span class=" selected">
                           <img src="#" class="selected-img logo1" id="input1">
@@ -130,7 +129,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Card Number</label>
-                          <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" placeholder="Enter Client's Name">
+                          <input type="text" class="form-control form-control-lg" id="cardNum" aria-describedby="emailHelp" placeholder="0000 0000 0000 0000">
                          
                         </div>
                       </div>
@@ -138,7 +137,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Holders Full Names</label>
-                          <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" placeholder="Enter clients Short Name">
+                          <input type="text" class="form-control form-control-lg" id="cardName" placeholder="Enter Full Name">
                          
                         </div>
                       </div>
@@ -147,11 +146,38 @@
                         <div class="form-group">
                           <label for="exampleInputEmail1">Validity Date</label>
                           <div class="form-row">
-                            <div class="col-4">
-                              <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" placeholder="Date">
+                            <div class="col-7">
+                              <select class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardMon" title="Select Month">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                              </select>
+                              
                             </div>
-                            <div class="col-8">
-                              <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" placeholder="Month">
+                            <div class="col-5">
+                              <select class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardYear" title="Year">
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                              </select>
                             </div>
                           </div>
                          
@@ -496,9 +522,15 @@
 
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
-<script src="assets/vendors/jquery/jquery.min.js"></script> 
-<script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="assets/vendors/wow/wow.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
 
 <!-- date picker -->
 <script src="assets/vendors/moment/moment.min.js"></script> 
@@ -507,10 +539,8 @@
 
 <script src="assets/js/main.js"></script> 
 
-<!-- <script>
-  $( '#fcSlideshow' ).flipshow();
- 
-</script> -->
+
+
 
 
 
