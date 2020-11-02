@@ -108,6 +108,22 @@ $(document).ready(function(){
         
     });
 
+    $('.form-btns .btn-back').on('click', function(){
+        var theParent=$(this).parent().parent().parent().parent().parent();
+        theParent.addClass("d-none");
+      
+        theParent.siblings().eq(0).removeClass('d-none');
+
+        $('.form-links .nav li a').removeClass('active');
+         $('.form-links .nav li').eq(0).children('a').addClass('active');
+
+    });
+
+    // input masking
+    jQuery('.credit-card').maskx({maskx:'cc'});
+
+    
+
     // dynamically updating the years
     var option = $('<option></option>').attr("value", "option value").text("Text");
     $("#cardYear").empty().append(option);
