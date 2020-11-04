@@ -45,12 +45,18 @@
 	<p>RevenueSure By</p>
 	<img src="assets/img/logos/nouveta-orange.svg">
   </div>
+  <div class="card-loader d-none">
+    <div class="lds-ripple"><div></div><div></div></div>
+    <h5 class="text-white mt-3">Processing Transaction</h5>
+    <small>Kindly be patient as we process the transaction</small>
+  </div>
+  
 
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="activation-form-container my-3">
-          <form>
+          <form class="card-form">
             <div class="form-header">
               <div class="form-logo">
                 <img src="assets/img/paymeLogo.svg">
@@ -71,7 +77,7 @@
                     <a class="nav-link" href="#">PayPal</a>
                   </li>
                   <li class="d-flex justify-content-center align-items-center">
-                    <button class="btn  btn-sm btn-primary btn-xs">Bill Details</button>
+                    <button class="btn  btn-sm btn-primary btn-xs billDetailsButton">Bill Details</button>
                   </li>
                   
                 </ul>
@@ -146,7 +152,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Holders Full Names</label>
-                          <input type="text" class="form-control form-control-lg" id="cardName" placeholder="Enter Full Name">
+                          <input type="text" class="form-control form-control-lg" id="cardName" placeholder="Enter Full Name" required>
                          
                         </div>
                       </div>
@@ -156,7 +162,7 @@
                           <label for="exampleInputEmail1">Validity Date</label>
                           <div class="form-row">
                             <div class="col-7">
-                              <select class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardMon" title="Select Month">
+                              <select required class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardMon" title="Select Month">
                                 <option value="January">January</option>
                                 <option value="February">February</option>
                                 <option value="March">March</option>
@@ -173,7 +179,7 @@
                               
                             </div>
                             <div class="col-5">
-                              <select class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardYear" title="Year">
+                              <select required class="selectpicker form-control form-control-lg text-capitalize" data-live-search="true" id="cardYear" title="Year">
                                 <option value="2020">2020</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
@@ -196,7 +202,7 @@
                       <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">CVV</label>
-                          <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" placeholder="Enter CVV" max="3">
+                          <input type="text" class="form-control form-control-lg" id="" aria-describedby="emailHelp" required placeholder="Enter CVV" maxlength="3" minlength="2">
                          
                         </div>
                       </div>

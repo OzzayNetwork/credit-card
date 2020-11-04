@@ -82,9 +82,22 @@ $(document).ready(function(){
            $(this).children('a').addClass('active');
            $(this).siblings().children('a').removeClass('active');
            var theIndex=$(this).index();
+
+           var thisIndex=theIndex;
            var theIndex=theIndex+1;
            var theClass=".slider-container"+theIndex;
            $(theClass).removeClass('d-none').siblings().addClass('d-none');
+
+           var theLast=$('.form-links .nav li').last().index();
+           
+            if(theLast==thisIndex){
+               $('.billDetailsButton').attr('disabled','disabled');
+            }
+            else{
+                $('.billDetailsButton').removeAttr('disabled');
+
+            }
+           
            
        });
 
@@ -95,6 +108,10 @@ $(document).ready(function(){
             var theParentIndex=theParent.index();
             $('.form-links .nav li a').removeClass('active');
             $('.form-links .nav li').eq(theParentIndex+1).children('a').addClass('active');
+
+            var theLast=$('.form-links .nav li').last().index();
+
+           
            
        });
 
@@ -117,7 +134,25 @@ $(document).ready(function(){
         $('.form-links .nav li a').removeClass('active');
          $('.form-links .nav li').eq(0).children('a').addClass('active');
 
+         $('.billDetailsButton').removeAttr('disabled');
+
+         
+        
+
     });
+
+    //execute when form is being submitted
+    $('.card-form').on('submit', function(e){
+        e.preventDefault();        
+        $('.card-loader').removeClass('d-none');
+
+        //opens confirmation page after transaction was succesful
+        
+        setTimeout(function(){ window.open ('confirmation.html','_self',false); }, 5000);
+
+
+        
+    })
 
     // input masking
     jQuery('.credit-card').maskx({maskx:'cc'});
