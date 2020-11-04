@@ -140,16 +140,40 @@ $(document).ready(function(){
         
 
     });
-    
+
+   
 
     //execute when form is being submitted
     $('.card-form').on('submit', function(e){
-        e.preventDefault();        
+        e.preventDefault(); 
+        
+        var cardYear=$('#cardYear').val();
+        var cardMon=$('#cardMon').val();
+
+        //cardMon=parseInt(String(moment(cardMon,'MMMM').format('M')));
+        alert(cardYear);
+        alert(cardMon);
+
+        // var thisMonth=parseInt(String(moment().format('M')));
+        // var thisYear=parseInt(String(moment().format('YYYY')));
+        // alert(thisYear);
+        // alert(cardYear);
+        // if(cardMon<=thisMonth){
+        //     if(cardYear<=thisYear){
+        //         alert('card is expired');
+        //         alert(cardYear);
+        //     }
+        // }
+
+
+
         $('.card-loader').removeClass('d-none');
 
         //opens confirmation page after transaction was succesful
         
         setTimeout(function(){ window.open ('confirmation.html','_self',false); }, 5000);
+
+       
 
 
         

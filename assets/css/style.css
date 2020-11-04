@@ -5571,6 +5571,12 @@ line-height: normal;
   .left-neg100{
 	  left: -100%;
   }
+
+  .form-group .error{
+	  color: red;
+	  font-weight: 400;
+	  font-size: 12px;
+  }
   
 
 
