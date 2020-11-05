@@ -12,7 +12,6 @@ $(document).ready(function(){
         $('.form-body .control-buttons img').each(function(){
       
             var the_img=$(this).attr('src');
-         //    alert(the_img);
             if(the_img!=="#"){
                 $(this).parent().addClass('no-img-bg');
      
@@ -102,7 +101,7 @@ $(document).ready(function(){
        });
 
        $('.form-btns .btn-next').on('click', function(){
-           var theParent=$(this).parent().parent().parent().parent().parent()
+            var theParent=$(this).parent().parent().parent().parent().parent()
             theParent.addClass("d-none");
             theParent.next().removeClass("d-none");
             var theParentIndex=theParent.index();
@@ -141,32 +140,113 @@ $(document).ready(function(){
 
     });
 
+    $('#cardMon').on('change', function(){
+        checkExp();
+    });
+
+    $('#cardYear').on('change', function(){
+        checkExp();
+    });
+
+    //*********************************************************************************************** */
+    //form validation section
+    //********************************************************************************************** */
+ 
+
+       $(".card-form").validate({
+        debug: true
+      });
+
+      $('.card-form input').on('keydown', function(){
+          checkFormValidity();
+      });
+
+      checkFormValidity();
+
+      function checkFormValidity(){
+
+             var cardYear=$('#cardYear').val();
+             var cardMon=$('#cardMon').val();
+             var hasErr=$('.card-form input').hasClass('error');;
+            $('.card-form input[required]').each(function(index){
+              var currentInput=$(this).val();
+              if(currentInput.length==0){
+                $('.btn-pay').attr('disabled','disabled');
+                $('.left-neg100').attr('disabled','disabled');
+              }
+              else if(cardYear.length==0){
+                $('.btn-pay').attr('disabled','disabled');
+                $('.left-neg100').attr('disabled','disabled');
+              }
+
+              else if(cardMon.length==0){
+                $('.btn-pay').attr('disabled','disabled');
+                $('.left-neg100').attr('disabled','disabled');
+              }
+              else if (hasErr==true){
+                $('.btn-pay').attr('disabled','disabled');
+                $('.left-neg100').attr('disabled','disabled');
+              }
+              else{
+                $('.btn-pay').removeAttr('disabled')
+                $('.left-neg100').removeAttr('disabled');
+              }
+
+
+          })
+
+      }
+
+    // function for checking card expiry    
+
+    function checkExp(){
+
+        var selectedYear=$('#cardYear').val();
+        var selectedMonth=$('#cardMon').val();
+
+        if(selectedMonth!==""){
+            if(selectedYear!==""){
+                var cardYear=$('#cardYear').val();
+                var cardMon=$('#cardMon').val();
+
+                cardMon=parseInt(String(moment(cardMon,'MMMM').format('M')));
+
+                var thisMonth=parseInt(String(moment().format('M')));
+                var thisYear=parseInt(String(moment().format('YYYY')));
+                if(cardMon<=thisMonth){
+                    if(cardYear<=thisYear){
+                       
+                        $('.btn-pay').attr('disabled','disabled');
+                        $('.left-neg100').attr('disabled','disabled');
+                        $('.cardExp').removeClass('d-none');
+
+                    }
+                    else{
+                        checkFormValidity();                        
+                        $('.cardExp').addClass('d-none');
+
+                    }
+                   
+                }
+                if(cardMon>thisMonth){
+                   checkFormValidity();
+                    $('.cardExp').addClass('d-none');                 
+                }
+
+            }
+        }
+       
+    }
+
+    //*********************************************************************************************** */
+    //form validation section end
+    //********************************************************************************************** */
+
    
 
     //execute when form is being submitted
     $('.card-form').on('submit', function(e){
         e.preventDefault(); 
-        
-        var cardYear=$('#cardYear').val();
-        var cardMon=$('#cardMon').val();
-
-        //cardMon=parseInt(String(moment(cardMon,'MMMM').format('M')));
-        alert(cardYear);
-        alert(cardMon);
-
-        // var thisMonth=parseInt(String(moment().format('M')));
-        // var thisYear=parseInt(String(moment().format('YYYY')));
-        // alert(thisYear);
-        // alert(cardYear);
-        // if(cardMon<=thisMonth){
-        //     if(cardYear<=thisYear){
-        //         alert('card is expired');
-        //         alert(cardYear);
-        //     }
-        // }
-
-
-
         $('.card-loader').removeClass('d-none');
 
         //opens confirmation page after transaction was succesful
@@ -181,6 +261,8 @@ $(document).ready(function(){
 
     // input masking
     jQuery('.credit-card').maskx({maskx:'cc'});
+    jQuery('#cardCvv').maskx({maskx:'cc'});
+    
 
     
 
@@ -208,7 +290,7 @@ $(document).ready(function(){
         $el.empty(); // remove old options
         $.each(newOptions, function(key,value) {
         $el.append($("<option></option>")
-        .attr("value", value).text(key));
+        .attr("value", newOptions[i]).text(key));
     });
 
     
@@ -216,6 +298,7 @@ $(document).ready(function(){
     $(function() {
         $('#cardYear').change( function() {
             var value = $(this).val();
+           
             
         });
     });

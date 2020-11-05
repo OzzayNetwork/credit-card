@@ -5577,6 +5577,9 @@ line-height: normal;
 	  font-weight: 400;
 	  font-size: 12px;
   }
+  .boarder-solid-1{
+	  border: 1px solid black;
+  }
   
 
 

@@ -153,7 +153,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Card Number</label>
-                          <input type="number" class="form-control form-control-lg credit-card" id="cardNum" required autofocus aria-describedby="emailHelp" placeholder="0000 0000 0000 0000" maxlength="19" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" >
+                          <input type="number" class="form-control form-control-lg credit-card" id="cardNum" required autofocus placeholder="0000 0000 0000 0000" maxlength="19" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" required>
                          
                         </div>
                       </div>
@@ -167,7 +167,7 @@
                       </div>
 
                       <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
+                        <div class="form-group ">
                           <label for="exampleInputEmail1">Validity Date</label>
                           <div class="form-row">
                             <div class="col-7">
@@ -204,14 +204,16 @@
                               </select>
                             </div>
                           </div>
+                          <small class="text-danger cardExp d-none animate fadeInDown">The card has expired</small>
                          
                         </div>
+                        
                       </div>
 
                       <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">CVV</label>
-                          <input type="text" class="form-control form-control-lg" id=""  required placeholder="Enter CVV" maxlength="3" minlength="2">                         
+                          <input type="number" class="form-control form-control-lg" data-mask="000" id="cardCvv"  required placeholder="Enter CVV" maxlength="3" minlength="2" required>                         
                         </div>
                       </div>
 
@@ -388,21 +390,24 @@
 </script> -->
 
 <script>
-  $(".card-form").validate({
-  rules: {
-    // at least 15€ when bonus material is included
-    pay_what_you_want: {
-      required: true
-      min: {
-        // min needs a parameter passed to it
-        param: 15,
-        depends: function(element) {
-          return $("#bonus-material").is(":checked");
-        }
-      }
-    }
-  }
-});
+//   $(".card-form").validate({
+//   rules: {
+//     // at least 15€ when bonus material is included
+//     pay_what_you_want: {
+//       required: true
+//       min: {
+//         // min needs a parameter passed to it
+//         param: 15,
+//         depends: function(element) {
+//           return $("#bonus-material").is(":checked");
+//         }
+//       }
+//     }
+//   }
+// });
+
+
+
 </script>
 
 
