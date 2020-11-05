@@ -157,6 +157,10 @@ $(document).ready(function(){
         debug: true
       });
 
+      $(".card-form").on('change', function(){
+          checkFormValidity();
+      })
+
       $('.card-form input').on('keydown', function(){
           checkFormValidity();
       });
