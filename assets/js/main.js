@@ -152,20 +152,25 @@ $(document).ready(function(){
     //form validation section
     //********************************************************************************************** */
  
-
+     checkExp();
+     $('.cardExp').addClass('d-none');
        $(".card-form").validate({
         debug: true
       });
 
-      $(".card-form").on('change', function(){
-          checkFormValidity();
+      $(".card-form input").on('change', function(){
+        checkExp();
       })
 
       $('.card-form input').on('keydown', function(){
-          checkFormValidity();
+        checkExp();
       });
 
-      checkFormValidity();
+      $('.card-form input').on('keyup', function(){
+        checkExp();
+      });
+
+      
 
       function checkFormValidity(){
 
