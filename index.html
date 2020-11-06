@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- Stylesheets -->
 <!-- Web Fonts  -->
+<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7COpen+Sans:400,700,800" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,500&display=swap" rel="stylesheet">
 <!--	icons-->
@@ -50,7 +51,32 @@
     <h5 class="text-white mt-3">Processing Transaction</h5>
     <small>Kindly be patient as we process the transaction</small>
   </div>
-  
+
+  <!-- Modal -->
+  <div class="modal fade" id="whatIsCvv" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content border-radius-0">
+        
+        <div class="modal-body pb-5">
+          
+          <h5 class="text-cenrter text-center font-weight-semi-bold mb-3">What is a Card CVV?</h5>
+          <p class="font-14 text-center mb-5">Your card's <strong class="font-weight-semi-bold">security code (CVV)</strong> is the <strong class="font-weight-semi-bold">3 or 4</strong> digit number located on <strong class="font-weight-semi-bold">the back</strong> of most cards.</p>
+         <div class="row pt-2">
+          <div class="col-sm-12 col-md-6">
+            <img src="assets/img/cards/amex_cvv_2x.png">
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <img src="assets/img/cards/visa_cvv_2x.png">
+          </div>
+         </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    
 
   <div class="container">
     <div class="row">
@@ -92,7 +118,7 @@
                 <div class="row form-contents">
                   <div class="col-12">
                     <div class="sec-title-two alternate  shape-bg wow fadeInUp animated" data-wow-duration="1500ms" data-appear-animation="fadeInUpShorter" data-wow-delay="200" style="visibility: visible; animation-duration: 1500ms; animation-name: fadeInUp;">
-                      <h2>Credit Card Payment</h2>
+                      <h2>Card Payment</h2>
                     </div>
 
                     <div class="d-none">
@@ -161,12 +187,12 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Holders Full Names</label>
-                          <input type="text" class="form-control form-control-lg"  pattern="([A-Za-z]{2,})([0-9'\s]+{0,})" minlength="2" id="cardName" placeholder="Enter Full Name" required>
+                          <input type="text" class="form-control form-control-lg"  pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$" minlength="2" id="cardName" placeholder="Enter Full Name" required>
                          
                         </div>
                       </div>
 
-                      <div class="col-sm-12 col-md-6">
+                      <div class="col-sm-12 col-md-7">
                         <div class="form-group ">
                           <label for="exampleInputEmail1">Validity Date</label>
                           <div class="form-row">
@@ -210,11 +236,16 @@
                         
                       </div>
 
-                      <div class="col-sm-12 col-md-4">
+                      <div class="col-sm-10 col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">CVV</label>
-                          <input type="number" class="form-control form-control-lg" data-mask="000" id="cardCvv"  required placeholder="Enter CVV" maxlength="3" minlength="2" required>                         
+                          <input type="number" class="form-control form-control-lg" data-mask="000" id="cardCvv"  required placeholder="CVV" maxlength="4" minlength="2" required>                         
                         </div>
+                      </div>
+                      <div class="col-md-1 col-sm-2 pl-0 d-flex justify-content-center align-items-center pt-3">
+                        <a class="text-info " title="what is a CVV" data-toggle="modal" data-target="#whatIsCVV">
+                          <i class="icon_question_alt2"></i>
+                        </a>
                       </div>
 
                      
@@ -363,7 +394,9 @@
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="assets/vendors/wow/wow.js"></script>
 
