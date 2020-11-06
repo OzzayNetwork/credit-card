@@ -169,6 +169,9 @@ $(document).ready(function(){
       $('.card-form input').on('keyup', function(){
         checkExp();
       });
+      $('.card-form input').on('keypress', function(){
+        checkExp();
+      });
 
       
 
