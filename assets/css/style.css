@@ -5595,6 +5595,15 @@ line-height: normal;
   .border-radius-0{
 	  border-radius: 0px !important;
   }
+
+  .method-cot{
+	padding: 1rem;
+    text-transform: capitalize;
+    border: 1px solid #00000021;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+  }
   
 
 
